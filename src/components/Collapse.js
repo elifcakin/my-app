@@ -8,23 +8,25 @@ import React from "react";
 
 class Collapse extends React.Component {
 
-    constructor() { 
-        super (); 
-
-        this.state = {
-            showContent: false
-        }    
-    }
+    state = { showContent: false }
 
     showMore = () => {
         this.setState({showContent: !this.state.showContent})
     }
 
+    // componentDidMount() {
+    //     console.log('component olusturuldu')
+    // }
+
+    // componentDidUpdate() {
+    //     console.log('component guncellendi')
+    // }
+
     render() {
         return (
             <div>
                 <button className="btn btn-primary w-100" onClick={this.showMore } >
-                     Link with href
+                    {this.props.children.props.cardTitle}  
                 </button>
                 {
                     this.state.showContent ? (
@@ -36,6 +38,6 @@ class Collapse extends React.Component {
             </div>
         );
     }
-};
+}
 
 export default Collapse;
